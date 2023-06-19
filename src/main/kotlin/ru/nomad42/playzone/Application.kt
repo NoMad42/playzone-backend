@@ -3,6 +3,8 @@ package ru.nomad42.playzone
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.cio.*
+import ru.nomad42.playzone.features.login.configureLoginRouting
+import ru.nomad42.playzone.features.register.configureRegisterRouting
 import ru.nomad42.playzone.plugins.*
 
 fun main() {
@@ -12,5 +14,7 @@ fun main() {
 
 fun Application.module() {
     configureSerialization()
+    configureLoginRouting()
+    configureRegisterRouting()
     configureRouting()
 }
