@@ -1,0 +1,1 @@
+rootProject.name = "ru.nomad42.playzone.playzone-backend"
