@@ -4,6 +4,7 @@ import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.cio.*
 import org.jetbrains.exposed.sql.Database
+import ru.nomad42.playzone.features.games.configureGamesRouting
 import ru.nomad42.playzone.features.login.configureLoginRouting
 import ru.nomad42.playzone.features.register.configureRegisterRouting
 import ru.nomad42.playzone.plugins.*
@@ -24,5 +25,6 @@ fun Application.module() {
     configureSerialization()
     configureLoginRouting()
     configureRegisterRouting()
+    configureGamesRouting()
     configureRouting()
 }

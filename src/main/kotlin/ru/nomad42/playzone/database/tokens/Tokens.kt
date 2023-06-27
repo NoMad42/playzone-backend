@@ -2,7 +2,9 @@ package ru.nomad42.playzone.database.tokens
 
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.insert
+import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction
+import java.util.*
 
 object Tokens : Table("tokens") {
     private val id = Tokens.uuid("id")
@@ -17,5 +19,11 @@ object Tokens : Table("tokens") {
                 it[token] = tokenDTO.token
             }
         }
+    }
+
+    fun isExist(token: String): Boolean = transaction {
+        Tokens.select {
+            Tokens.token eq UUID.fromString(token)
+        }.firstOrNull() != null
     }
 }
